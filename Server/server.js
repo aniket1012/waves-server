@@ -18,9 +18,18 @@ app.use(cookieParser())
 //Models
 const {User} = require('./models/user')
 
+
+// Middlewares
+
+const { auth } = require('./middleware/auth')
+
 //=====================================
 //               USERS
 //=====================================
+
+app.get('/api/users/auth',auth,(req,res)=> {
+    
+})
 
 app.post('/api/users/register', (req,res) => {
     const user = new User(req.body)
@@ -51,6 +60,8 @@ app.post('/api/users/login', (req,res)=>{
         })
     })
 })
+
+
 
 const port = process.env.PORT || 3002 
 
