@@ -17,11 +17,29 @@ app.use(cookieParser())
 
 //Models
 const {User} = require('./models/user')
+const {Brand} = require('./models/brand')
 
 
 // Middlewares
 
 const { auth } = require('./middleware/auth')
+//=====================================
+//               BRAND
+//=====================================
+
+app.post('/api/product/brand', auth, (req,res)=> {
+    const brand = new Brand(req.body)
+ 
+    brand.save((err,doc) => {
+        if(err) return res.json({success:false, err})
+        res.status(200).json({
+            success: true,
+            brand: doc
+        })
+    })
+})
+
+
 
 //=====================================
 //               USERS

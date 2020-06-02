@@ -9,6 +9,6 @@ const brandSchema = mongoose.Schema({
     }
 })
 
-const Brand = mongoos.model('Brand', brandSchema)
+const Brand = mongoose.model('Brand', brandSchema)
 
 module.exports = { Brand }
