@@ -34,6 +34,26 @@ const { admin } = require('./middleware/admin')
 //=====================================
 
 
+app.get('/api/product/articles_by_id',(req,res)=>{
+    let type = req.query.type 
+    let items = req.query.id 
+
+    if(type === "array"){
+        let ids = req.query.id.split(',')
+        items = []
+        items = ids.map((item)=>{
+            return mongoose.Types.ObjectId(item)
+        })
+    }
+
+    Product.
+    find({'_id':{$in:items}}).
+    exec((err,docs)=>{
+        return res.status(200).send(docs)
+    })
+})
+
+
 app.post('/api/product/article',auth,admin,(req,res)=>{
     const product = new Product(req.body)
 
