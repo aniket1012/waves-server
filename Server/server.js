@@ -30,7 +30,7 @@ const { admin } = require('./middleware/admin')
 
 
 //=====================================
-//               Products
+//               PRODUCTS
 //=====================================
 
 
