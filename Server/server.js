@@ -34,11 +34,12 @@ const { admin } = require('./middleware/admin')
 //=====================================
 
 // BY ARRIVAL
+// /articles?sortBy=createdAt&order=desc&limit=4
  app.get('/app/product/articles', (req,res)=>{
 
     let order = req.query.order ? req.query.order : 'asc'
     let sortBy = req.query.soryBy ? req.query.soryBy : '_id'
-    let limit = req.query.limit ? req.query.limit : 100
+    let limit = req.query.limit ? parseInt(req.query.limit) : 100
     
     Product.find().
     populate('brand').
