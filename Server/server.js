@@ -37,7 +37,7 @@ const { admin } = require('./middleware/admin')
 // /articles?sortBy=createdAt&order=desc&limit=4
 
 
-//BY SELL
+//BY SELLgit s
 // /articles?sortBy=sold&order=desc&limit=100&skip=5
  app.get('/app/product/articles', (req,res)=>{
 
